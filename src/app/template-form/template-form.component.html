@@ -1,0 +1,46 @@
+<p>template-form works!</p>
+
+
+
+<form #productForm="ngForm">
+
+    <fieldset>
+        <legend>Product Form</legend>
+
+        <!-- <Email Block> -->
+        <div class="form-group">
+            <label for="inputId">Product Id</label>
+            <input type="text" required [(ngModel)]="product.id" id="inputId" name="id" placeholder=" Product Id">
+        </div>
+
+        <!-- <Password Block> -->
+        <div ngModelGroup="name">
+            <label for="inputName">Product Name</label>
+            <input type="text" required [(ngModel)]="product.name" id="inputName" name="name" placeholder="Prod Name">
+        </div>
+
+        <div class="form-group">
+            <label for="manuDate">Manu Date</label>
+            <input type="date" required [(ngModel)]="product.manuDate" name="manuDate"
+                placeholder="Manu Date">
+        </div>
+        <div class="form-group">
+            <label for="expDate">exp Date</label>
+            <input type="date" required [(ngModel)]="product.expDate" name="expDate"
+                placeholder="Exp Date">
+        </div>
+        <div class="form-group">
+            <label for="price">Price</label>
+            <input type="number" required [(ngModel)]="product.price" name="price"
+                placeholder="Price">
+        </div>
+
+        <!-- <Button Block> -->
+        <div class="form-group">
+            <button type="reset" class="btn btn-default">Cancel</button>
+            <input type="submit" class="btn btn-success" [disabled]="!productForm.valid">
+        </div>
+    </fieldset>
+</form>
+
+{{product | json}}
